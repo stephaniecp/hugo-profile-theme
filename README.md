@@ -1,4 +1,4 @@
-(My local fork of the Hugo Thems "hugo-profile" by @gurusabarish used for my Portfolio site/repo)
+(My local fork of the Hugo Theme "hugo-profile" by @gurusabarish used for my Portfolio site/repo)
 
 
 # Hugo Profile | [Wiki Page](https://github.com/gurusabarish/hugo-profile/wiki)
