@@ -66,10 +66,9 @@
                                     </span>
                                     {{ end }}
                                 </div>
-                            <!-- START: SCP Attempt at fixing the issue preventing multiple roles at any one company -->
+                            <!-- START: SCP Attempt at fixing the issue preventing multiple roles at any one company. Code chunk below was added to original theme -->
                                 <span class="h4">{{ .job }}</span>
                                 <small>-</small>
-                                <a href="{{ .companyUrl }}" target="_blank">{{ .company }}</a>
                                 <div class="pb-1">
                                     <small>{{ .date }}</small>
                                     {{ if .info.enable | default true }}
