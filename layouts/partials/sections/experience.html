@@ -66,6 +66,26 @@
                                     </span>
                                     {{ end }}
                                 </div>
+                            <!-- START: SCP Attempt at fixing the issue preventing multiple roles at any one company -->
+                                <span class="h4">{{ .job }}</span>
+                                <small>-</small>
+                                <a href="{{ .companyUrl }}" target="_blank">{{ .company }}</a>
+                                <div class="pb-1">
+                                    <small>{{ .date }}</small>
+                                    {{ if .info.enable | default true }}
+                                    <span class="p-2">
+                                        <span 
+                                            style="cursor: pointer;" 
+                                            data-bs-toggle="tooltip" 
+                                            data-bs-placement="top" 
+                                            data-bs-original-title={{ .info.content | default (print "Working as a " .job " at " .company ) }}
+                                        >
+                                            <i class="fas fa-info-circle fa-xs"></i>
+                                        </span>
+                                    </span>
+                                    {{ end }}
+                                </div>
+                            <!-- END: SCP Attempt at fixing the issue preventing multiple roles at any one company -->
 
                                 {{ if .featuredLink.enable | default false }}
                                 <div class="py-2 featuredLink">
