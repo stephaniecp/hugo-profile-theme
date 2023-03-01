@@ -7,35 +7,35 @@
                 <div class="experience-container px-3 pt-2">
                     <ul class="nav nav-pills mb-3 bg-transparent primary-font" id="pills-tab" role="tablist">
                         {{ range $index, $element := .Site.Params.experience.items }}
-                        {{ if (eq $index 0) }}
-                        <li class="nav-item px-1 bg-transparent" role="presentation">
-                            <div 
-                                class="nav-link active bg-transparent" 
-                                aria-selected="true" 
-                                role="tab" 
-                                data-bs-toggle="pill"
-                                id='{{ replace .company " " "-" }}-{{ replace .date " " "-" }}-tab'
-                                data-bs-target='#pills-{{ replace .company " " "-" }}-{{ replace .date " " "-" }}'
-                                aria-controls='{{ replace .company " " "-" }}-{{ replace .date " " "-" }}' 
-                            >
-                                {{ .company }}
-                            </div>
-                        </li>
-                        {{ else }}
-                        <li class="nav-item px-1 bg-transparent" role="presentation">
-                            <div 
-                                class="nav-link bg-transparent" 
-                                aria-selected="true" 
-                                role="tab" 
-                                data-bs-toggle="pill"
-                                id='{{ replace .company " " "-" }}-{{ replace .date " " "-" }}-tab'
-                                data-bs-target='#pills-{{ replace .company " " "-" }}-{{ replace .date " " "-" }}' 
-                                aria-controls='{{ replace .company " " "-" }}-{{ replace .date " " "-" }}'
-                            >
-                                {{ .company }}
-                            </div>
-                        </li>
-                        {{ end }}
+                            {{ if (eq $index 0) }}
+                            <li class="nav-item px-1 bg-transparent" role="presentation">
+                                <div 
+                                    class="nav-link active bg-transparent" 
+                                    aria-selected="true" 
+                                    role="tab" 
+                                    data-bs-toggle="pill"
+                                    id='{{ replace .company " " "-" }}-{{ replace .date " " "-" }}-tab'
+                                    data-bs-target='#pills-{{ replace .company " " "-" }}-{{ replace .date " " "-" }}'
+                                    aria-controls='{{ replace .company " " "-" }}-{{ replace .date " " "-" }}' 
+                                >
+                                    {{ .company }}
+                                </div>
+                            </li>
+                            {{ else }}
+                            <li class="nav-item px-1 bg-transparent" role="presentation">
+                                <div 
+                                    class="nav-link bg-transparent" 
+                                    aria-selected="true" 
+                                    role="tab" 
+                                    data-bs-toggle="pill"
+                                    id='{{ replace .company " " "-" }}-{{ replace .date " " "-" }}-tab'
+                                    data-bs-target='#pills-{{ replace .company " " "-" }}-{{ replace .date " " "-" }}' 
+                                    aria-controls='{{ replace .company " " "-" }}-{{ replace .date " " "-" }}'
+                                >
+                                    {{ .company }}
+                                </div>
+                            </li>
+                            {{ end }}
                         {{ end }}
                     </ul>
                     <div class="tab-content pb-5 pt-2 bg-transparent primary-font" id="pills-tabContent">
@@ -49,8 +49,8 @@
                         >
                             <div>
                                 <span class="h4">{{ .job }}</span>
-                                <small>-</small>
-                                <a href="{{ .companyUrl }}" target="_blank">{{ .company }}</a>
+                                <!-- <small>-</small>
+                                <a href="{{ .companyUrl }}" target="_blank">{{ .company }}</a> -->
                                 <div class="pb-1">
                                     <small>{{ .date }}</small>
                                     {{ if .info.enable | default true }}
@@ -66,25 +66,6 @@
                                     </span>
                                     {{ end }}
                                 </div>
-                            <!-- START: SCP Attempt at fixing the issue preventing multiple roles at any one company. Code chunk below was added to original theme -->
-                                <!-- <span class="h4">{{ .job }}</span>
-                                <small>-</small>
-                                <div class="pb-1">
-                                    <small>{{ .date }}</small>
-                                    {{ if .info.enable | default true }}
-                                    <span class="p-2">
-                                        <span 
-                                            style="cursor: pointer;" 
-                                            data-bs-toggle="tooltip" 
-                                            data-bs-placement="top" 
-                                            data-bs-original-title={{ .info.content | default (print "Working as a " .job " at " .company ) }}
-                                        >
-                                            <i class="fas fa-info-circle fa-xs"></i>
-                                        </span>
-                                    </span>
-                                    {{ end }}
-                                </div> -->
-                            <!-- END: SCP Attempt at fixing the issue preventing multiple roles at any one company -->
 
                                 {{ if .featuredLink.enable | default false }}
                                 <div class="py-2 featuredLink">
@@ -96,6 +77,27 @@
                             </div>
 
                             {{ .content | markdownify}}
+
+                            {{ if .job2 | default false }} <!-- SCP Job 2 hack-->
+                                <div> 
+                                    <br />
+                                    <span class="h4">{{ .job2 }}</span>
+                                    <div class="pb-1">
+                                        <small>{{ .date2 }}</small>
+                                        <span class="p-2">
+                                            <span 
+                                                style="cursor: pointer;" 
+                                                data-bs-toggle="tooltip" 
+                                                data-bs-placement="top" 
+                                                data-bs-original-title={{ (print "Working as a " .job2 " at " .company ) }}
+                                            >
+                                                <i class="fas fa-info-circle fa-xs"></i>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                {{ .content2 | markdownify}}
+                            {{ end }}
                         </div>
                         {{ else }}
                         <div 
@@ -106,8 +108,8 @@
                         >
                             <div>
                                 <span class="h4">{{ .job }}</span>
-                                <small>-</small>
-                                <a href="{{ .companyUrl }}" target="_blank">{{ .company }}</a>
+                                <!-- <small>-</small>
+                                <a href="{{ .companyUrl }}" target="_blank">{{ .company }}</a> -->
                                 
                                 <div class="pb-1">
                                     <small>{{ .date }}</small>
