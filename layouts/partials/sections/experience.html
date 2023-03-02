@@ -78,7 +78,7 @@
 
                             {{ .content | markdownify}}
 
-                            {{ if .job2 | default false }} <!-- SCP Job 2 hack-->
+                            {{ if .job2 | default false }} <!-- SCP Job 2 hack - part 1- Start -->
                                 <div> 
                                     <br />
                                     <span class="h4">{{ .job2 }}</span>
@@ -97,7 +97,7 @@
                                     </div>
                                 </div>
                                 {{ .content2 | markdownify}}
-                            {{ end }}
+                            {{ end }} <!-- SCP Job 2 hack - part 1- End -->
                         </div>
                         {{ else }}
                         <div 
@@ -126,7 +126,6 @@
                                     </span>
                                     {{ end }}
                                 </div>
-                                
                                 {{ if .featuredLink.enable | default false }}
                                 <div class="py-2 featuredLink">
                                     <a class="p-2 px-4 btn btn-outline-primary btn-sm" href={{ .featuredLink.url | default "#" }} target="_blank">
@@ -139,6 +138,26 @@
                             <div class="pt-2">
                                 {{ .content | markdownify}}
                             </div>
+                            {{ if .job2 | default false }} <!-- SCP Job 2 hack - part 2- Start -->
+                                <div> 
+                                    <br />
+                                    <span class="h4">{{ .job2 }}</span>
+                                    <div class="pb-1">
+                                        <small>{{ .date2 }}</small>
+                                        <span class="p-2">
+                                            <span 
+                                                style="cursor: pointer;" 
+                                                data-bs-toggle="tooltip" 
+                                                data-bs-placement="top" 
+                                                data-bs-original-title={{ (print "Working as a " .job2 " at " .company ) }}
+                                            >
+                                                <i class="fas fa-info-circle fa-xs"></i>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                {{ .content2 | markdownify}}
+                                {{ end }} <!-- SCP Job 2 hack - part 2- End -->
                         </div>
                         {{ end }}
                         {{ end }}
